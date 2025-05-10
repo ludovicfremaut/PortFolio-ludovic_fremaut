@@ -4,14 +4,14 @@ import Phaser from "phaser";
 
 export default function GameCanvas() {
   const [gameKey, setGameKey] = useState(0);
+  const [gameOver, setGameOver] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!canvasRef.current) return;
-
-    // Supprimer l'ancien canvas si existant
     canvasRef.current.innerHTML = "";
+    setGameOver(false);
 
     let score = 0;
     let scoreText: Phaser.GameObjects.Text;
@@ -32,10 +32,10 @@ export default function GameCanvas() {
       },
       scene: {
         preload() {
-          this.load.image("404", "https://cdn-icons-png.flaticon.com/512/564/564445.png");
-          this.load.image("undefined", "https://cdn-icons-png.flaticon.com/512/650/650143.png");
-          this.load.image("null", "https://cdn-icons-png.flaticon.com/512/753/753345.png");
-          this.load.image("NaN", "https://cdn-icons-png.flaticon.com/512/9904/9904161.png");
+          this.load.image("bug", "https://cdn-icons-png.flaticon.com/512/4006/4006740.png");
+          this.load.image("error", "https://cdn-icons-png.flaticon.com/512/564/564445.png");
+          this.load.image("alert", "https://cdn-icons-png.flaticon.com/512/595/595067.png");
+          this.load.image("warning", "https://cdn-icons-png.flaticon.com/512/1828/1828665.png");
         },
         create() {
           score = 0;
@@ -51,7 +51,7 @@ export default function GameCanvas() {
             color: "#f8fafc",
           });
 
-          const icons = ["404", "undefined", "null", "NaN"];
+          const icons = ["bug", "error", "alert", "warning"];
 
           const spawnIcon = () => {
             const x = Phaser.Math.Between(50, 350);
@@ -95,16 +95,7 @@ export default function GameCanvas() {
                   fontStyle: "bold",
                 });
 
-                const replayBtn = this.add.text(110, 340, "Rejouer", {
-                  fontSize: "24px",
-                  color: "#38bdf8",
-                  backgroundColor: "#1e293b",
-                  padding: { x: 10, y: 5 },
-                })
-                  .setInteractive()
-                  .on("pointerdown", () => {
-                    setGameKey((prev) => prev + 1);
-                  });
+                setGameOver(true);
               }
             },
             loop: true,
@@ -124,12 +115,20 @@ export default function GameCanvas() {
     <section
       id="minijeu"
       ref={containerRef}
-      className="relative z-10 pt-24 min-h-screen flex justify-center items-start bg-transparent px-4"
+      className="relative z-10 pt-24 min-h-screen flex flex-col items-center justify-start bg-transparent px-4"
     >
-      <div ref={canvasRef} className="border border-white" />
-      <div className="ml-6 w-1/2 text-slate-100">
+      <div ref={canvasRef} className="border border-white mb-4" />
+      {gameOver && (
+        <button
+          onClick={() => setGameKey((prev) => prev + 1)}
+          className="px-6 py-3 bg-sky-500 text-white rounded-full hover:bg-sky-600 transition"
+        >
+          🔁 Rejouer
+        </button>
+      )}
+      <div className="mt-6 w-1/2 text-slate-100 text-center">
         <h2 className="text-2xl font-bold mb-4">Attrape les erreurs !</h2>
-        <p className="mb-2">Clique sur un maximum d'erreurs (404, NaN, etc.) avant la fin du temps.</p>
+        <p className="mb-2">Clique sur un maximum de bugs, alertes et warnings avant la fin du temps.</p>
         <p>Chaque clic te rapporte 1 point. Bonne chance !</p>
       </div>
     </section>
