@@ -1,3 +1,5 @@
+//* Mini jeux Généré par IA
+
 // src/components/GameCanvas.tsx
 import { useEffect, useRef, useState } from "react";
 import Phaser from "phaser";
@@ -62,7 +64,16 @@ export default function GameCanvas() {
             icon.on("pointerdown", () => {
               score++;
               scoreText.setText("Score : " + score);
-              icon.destroy();
+
+              // 💥 Effet visuel : zoom + fondu
+              this.tweens.add({
+                targets: icon,
+                scale: 1.3,
+                alpha: 0,
+                duration: 200,
+                ease: "Power1",
+                onComplete: () => icon.destroy(),
+              });
             });
 
             this.time.addEvent({

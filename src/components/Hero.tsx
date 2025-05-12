@@ -5,7 +5,9 @@ export default function Hero() {
   const scrollTo = useScrollTo();
 
   return (
-    <section className="relative z-10 h-screen w-full flex flex-col items-center justify-center text-center bg-transparent px-4">
+    <section
+      id="Accueil"
+     className="relative z-10 h-screen w-full flex flex-col items-center justify-center text-center bg-transparent px-4">
       <motion.h1
         initial={{ opacity: 0, y: -40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -31,7 +33,7 @@ export default function Hero() {
         className="mt-8 flex gap-4"
       >
         <button
-          onClick={() => scrollTo("projects")}
+          onClick={() => scrollTo("portfolio")}
           className="px-6 py-3 rounded-full border bg-sky-500 text-white hover:bg-sky-600 transition"
         >
           Voir mes projets

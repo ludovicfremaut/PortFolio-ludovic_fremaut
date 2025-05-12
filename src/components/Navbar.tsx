@@ -7,10 +7,9 @@ const Navbar = () => {
   const scrollTo = useScrollTo();
 
   const sections = [
-    { label: "Accueil", id: "hero" },
-    { label: "Portfolio", id: "projects" },
+    { label: "Accueil", id: "Accueil" },
     { label: "A propos", id: "about" },
-    { label: "Mini-jeu", id: "minijeu" },
+    { label: "Portfolio", id: "portfolio" },
     { label: "Contact", id: "contact" },
   ];
 
