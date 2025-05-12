@@ -1,11 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App";
+import { ScrollProvider } from "./components/ScrollProvider"; // adapte le chemin si besoin
 
-import './styles/main.scss'
-import App from './App.tsx'
-
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-)
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <React.StrictMode>
+    <ScrollProvider>
+      <App />
+    </ScrollProvider>
+  </React.StrictMode>
+);

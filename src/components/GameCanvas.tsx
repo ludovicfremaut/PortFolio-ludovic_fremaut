@@ -115,7 +115,7 @@ export default function GameCanvas() {
     <section
       id="minijeu"
       ref={containerRef}
-      className="relative z-10 pt-24 min-h-screen flex flex-col items-center justify-start bg-transparent px-4"
+      className="scroll-mt-40 relative z-10 pt-24 min-h-screen flex flex-col items-center justify-start bg-transparent px-4"
     >
       <div ref={canvasRef} className="border border-white mb-4" />
       {gameOver && (
