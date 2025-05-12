@@ -1,0 +1,34 @@
+// main.scss
+
+
+// 2. Abstracts (variables, mixins)
+// On les charge avec @use as * pour éviter d’écrire variables.$primary
+@use "abstracts/variables" as *;
+@use "abstracts/mixins" as *;
+
+// 3. Base (reset, typographie, éléments HTML de base)
+@use "base/reset";
+@use "base/typography";
+
+// 4. Layout (structure du site : header, footer, etc.)
+@use "layout/header";
+@use "layout/footer";
+
+// 5. Components (boutons, cards, etc.)
+@use "components/button";
+@use "components/card";
+
+// 6. Pages (styles spécifiques aux pages)
+@use "pages/home";
+@use "pages/contact";
+
+// 7. Themes (dark mode, light mode…)
+@use "themes/dark";
+
+// 8. Vendors (librairies externes comme Swiper, Leaflet, etc.)
+@use "vendors/swiper";
+
+// 1. Tailwind layers (toujours en haut)
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

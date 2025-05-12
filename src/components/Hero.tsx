@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+
 export default function Hero() {
   return (
     <section className="relative z-10 h-screen w-full flex flex-col items-center justify-center text-center bg-transparent px-4">
@@ -30,13 +31,13 @@ export default function Hero() {
       >
         <a
           href="#projects"
-          className="px-6 py-3 rounded-full bg-sky-500 text-white hover:bg-sky-600 transition"
+          className="px-6 py-3 rounded-full border bg-sky-500 text-white hover:bg-sky-600 transition"
         >
           Voir mes projets
         </a>
         <a
           href="#contact"
-          className="px-6 py-3 rounded-full border border-slate-400 text-slate-200 hover:bg-slate-800 transition"
+          className="px-6 py-3 rounded-full border bg-sky-500 text-slate-200 hover:bg-sky-600 transition"
         >
           Me contacter
         </a>
