@@ -23,7 +23,7 @@ export default function ParticlesBackground() {
       shape: {
         type: "char",
         character: {
-          value: ["<", ">", "{", "}", "/", ";"],
+          value: ["<", ">", "{", "}", "/", ";", "[", "]", "(", ")"],
           font: "Courier New",
           weight: "400",
         },

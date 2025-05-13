@@ -11,8 +11,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emailjs/browser": "4.4.1",
     "@studio-freight/lenis": "1.0.42",
     "@tailwindcss/vite": "^4.1.5",
+    "canvas-confetti": "1.9.3",
+    "emailjs": "4.0.3",
     "framer-motion": "^12.9.4",
     "lucide-react": "^0.507.0",
     "phaser": "^3.88.2",
