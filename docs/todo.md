@@ -56,3 +56,5 @@ Mettre en place un système d’envoi d’e-mails fonctionnel depuis le formulai
 > À la soumission du formulaire, recevoir un e-mail contenant les infos (nom, mail, message) dans une boîte de réception (ou simulateur) avec un retour de succès côté utilisateur.
 
 ---
+
+

@@ -11,12 +11,13 @@ function App() {
 
   return (
     <>
-    <ParticlesBackground />
     <Navbar />
+    <ParticlesBackground />
     <Hero />
     <About/>
     <Portfolio />
     <Contact />
+  
     </>
   )
 }
