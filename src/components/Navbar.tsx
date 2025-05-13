@@ -1,6 +1,13 @@
 import { motion } from "framer-motion";
-import { BriefcaseBusiness, Computer, Home, SearchSlash, UserPen } from "lucide-react";
+import {
+  BriefcaseBusiness,
+  Computer,
+  Home,
+  SearchSlash,
+  UserPen,
+} from "lucide-react";
 import { useScrollTo } from "../hooks/useScrollTo";
+import BurgerMenu from "./BurgerMenu";
 
 const Navbar = () => {
   const scrollTo = useScrollTo();
@@ -11,9 +18,21 @@ const Navbar = () => {
       id: "Accueil",
       icon: <Home className="h-4 w-4 inline mr-1" />,
     },
-    { label: "A propos", id: "about", icon: <SearchSlash className="h-4 w-4 inline mr-1" /> },
-    { label: "Portfolio", id: "portfolio", icon: <BriefcaseBusiness className="h-4 w-4 inline mr-1" /> },
-    { label: "Contact", id: "contact", icon: <UserPen className="h-4 w-4 inline mr-1" /> },
+    {
+      label: "A propos",
+      id: "about",
+      icon: <SearchSlash className="h-4 w-4 inline mr-1" />,
+    },
+    {
+      label: "Portfolio",
+      id: "portfolio",
+      icon: <BriefcaseBusiness className="h-4 w-4 inline mr-1" />,
+    },
+    {
+      label: "Contact",
+      id: "contact",
+      icon: <UserPen className="h-4 w-4 inline mr-1" />,
+    },
   ];
 
   return (
@@ -44,6 +63,10 @@ const Navbar = () => {
                 </motion.button>
               ))}
             </div>
+          </div>
+          {/* Mobile menu */}
+          <div className="md:hidden">
+            <BurgerMenu />
           </div>
         </div>
       </div>

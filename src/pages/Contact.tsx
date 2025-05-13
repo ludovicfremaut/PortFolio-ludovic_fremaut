@@ -23,7 +23,6 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // 🕵️ Honeypot check
     if (formData.website.trim() !== "") {
       console.warn("Tentative de spam détectée");
       setStatus("Une erreur est survenue.");
@@ -41,12 +40,12 @@ export default function Contact() {
 
       setStatus("Message envoyé avec succès !");
       setFormData({ name: "", email: "", message: "", website: "" });
+
       confetti({
         particleCount: 80,
         spread: 70,
         origin: { y: 0.6 },
       });
-      
     } catch (err) {
       console.error("Erreur lors de l’envoi :", err);
       setStatus("Erreur lors de l’envoi du message.");
@@ -64,12 +63,7 @@ export default function Contact() {
       <h2 className="text-4xl font-bold text-cyan-400 mb-8">Me contacter</h2>
 
       <div className="flex flex-col lg:flex-row gap-8 max-w-6xl w-full">
-        {/* Game */}
-        <div className="flex-1 min-h-[600px] bg-slate-900 rounded-xl p-4">
-          <GameCanvas />
-        </div>
-
-        {/* Form */}
+        {/* Formulaire en haut sur mobile, à gauche sur desktop */}
         <form
           onSubmit={handleSubmit}
           className="flex-1 min-h-[600px] bg-slate-900 p-8 rounded-xl space-y-4 flex flex-col"
@@ -117,9 +111,10 @@ export default function Contact() {
 
           <button
             type="submit"
-            className="w-full py-3 rounded bg-cyan-500 hover:bg-cyan-600 transition text-white font-semibold"
+            className="w-full py-3 rounded bg-cyan-500 hover:bg-cyan-600 transition text-white font-semibold disabled:opacity-50"
+            disabled={status === "Envoi en cours..."}
           >
-            Envoyer
+            {status === "Envoi en cours..." ? "Envoi..." : "Envoyer"}
           </button>
 
           <p className="text-xs text-slate-400 italic text-center mt-2">
@@ -139,6 +134,11 @@ export default function Contact() {
             </motion.p>
           )}
         </form>
+
+        {/* Jeu en bas sur mobile, à droite sur desktop */}
+        <div className="flex-1 min-h-[600px] bg-slate-900 rounded-xl p-4">
+          <GameCanvas />
+        </div>
       </div>
     </motion.section>
   );
