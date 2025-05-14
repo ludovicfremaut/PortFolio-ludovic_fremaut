@@ -5,6 +5,7 @@ import {
   Home,
   SearchSlash,
   UserPen,
+  FileUser,
 } from "lucide-react";
 import { useScrollTo } from "../hooks/useScrollTo";
 import BurgerMenu from "./BurgerMenu";
@@ -32,6 +33,11 @@ const Navbar = () => {
       label: "Contact",
       id: "contact",
       icon: <UserPen className="h-4 w-4 inline mr-1" />,
+    },
+    {
+      label: "cv",
+      id: "cv",
+      icon: <FileUser className="h-4 w-4 inline mr-1" />,
     },
   ];
 

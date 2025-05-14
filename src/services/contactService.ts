@@ -11,6 +11,11 @@ export const sendContactForm = async (data: ContactFormData) => {
   const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID!;
   const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY!;
 
+  if (!data.name || !data.email || !data.message) {
+    throw new Error("Champs manquants");
+  }
+  
+
   const now = new Date();
   const time = now.toLocaleString("fr-FR", {
     dateStyle: "short",
