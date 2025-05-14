@@ -16,7 +16,6 @@ export const ScrollProvider = ({ children }: { children: React.ReactNode }) => {
     const instance = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smooth: true,
     });
 
     setLenis(instance);

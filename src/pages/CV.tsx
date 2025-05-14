@@ -32,7 +32,14 @@ export default function CVSection() {
         </a>
       </div>
 
-      {/* Aperçu iframe si demandé */}
+      {/* Message d’avertissement visible uniquement sur mobile */}
+      {showCV && (
+        <p className="block md:hidden text-center text-red-400 text-sm mb-6">
+          ⚠️ L’aperçu du CV n’est pas disponible sur mobile.
+        </p>
+      )}
+
+      {/* Aperçu iframe uniquement sur desktop/tablette */}
       <AnimatePresence>
         {showCV && (
           <motion.div
