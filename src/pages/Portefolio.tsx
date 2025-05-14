@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/pagination";
+
 
 const projects = [
   {
@@ -23,14 +23,14 @@ const projects = [
   {
     title: "Social-Network",
     description: "Application de réseau social avec fonctionnalités de messagerie.",
-    image: "/images/social-network.png",
+    image: "/images/socialnetwork.png",
     github: "https://github.com/ludovicfremaut/Social-Network",
     demo: "",
   },
   {
     title: "Ludovic-Fremaut",
     description: "Projet personnel mettant en avant mes compétences en développement web.",
-    image: "/images/ludovic-fremaut.png",
+    image: "/images/stackgithub.png",
     github: "https://github.com/ludovicfremaut/Ludovic-Fremaut",
     demo: "",
   },
